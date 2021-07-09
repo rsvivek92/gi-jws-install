@@ -1,0 +1,22 @@
+-
+  name: Begin Installation
+  hosts: '{{ environment_name }}_apache'
+  vars_files:
+    - '{{ ansible_dir }}/{{ environment_name }}.yaml'
+  user: ec2-user
+  tasks:
+    - name: Create Apache Web Instances
+      shell: sh /tmp/automate/scripts/create_apache.sh '{{ environment_name }}' '{{ base_directory }}' '{{ item.port }}' '{{ item.cluster_listen_port }}' '{{ item.apache_name }}' 
+      delegate_to: '{{ item.apache_host }}'
+      loop: '{{ apache_instances }}'
+
+    - name: Wait for tomcat registration
+      shell: sleep 10
+      delegate_to: localhost
+
+    - name: Test Tomcat Web Instances
+      uri:
+        url: 'http://{{ item.apache_host }}:{{ item.port}}/TechRefresh'
+        timeout: 3
+      delegate_to: localhost
+      loop: '{{ apache_instances }}'

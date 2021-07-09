@@ -1,0 +1,11 @@
+-
+  name: Begin Installation
+  hosts: '{{ environment_name }}_tomcat'
+  vars_files:
+    - '{{ ansible_dir }}/{{ environment_name }}.yaml'
+  user: ec2-user
+  tasks:
+    - name: Create Tomcat Base Setup
+      shell: sh /tmp/automate/scripts/create_tomcat.sh '{{ environment_name }}' '{{ base_directory }}' '{{ java_home_directory }}' '{{ tomcat_base_directory }}' tomcat_base 58004 58000 58002 dummy:55555 '{{ jndi_name }}' '{{ db_host }}' '{{ db_port }}' '{{ db_service }}' '{{ db_user }}' '{{ db_password }}' '{{ db_max_active_connections }}' '{{ db_max_idle_connections }}' '{{ db_min_idle_connections }}' '{{ db_max_wait_connections }}' '{{ deploy_user }}' '{{ deploy_password }}' base
+      become: yes
+      become_user: tomcat

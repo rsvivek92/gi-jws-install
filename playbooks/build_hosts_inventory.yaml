@@ -1,0 +1,12 @@
+-
+  name: HostsInventoryBuild
+  hosts: localhost
+  tasks:
+    - name: Build the hosts inventory file for tomcat
+      shell: echo ['{{ environment_name }}_tomcat'] > '{{ ansbile_dir }}'/inventory.txt
+    - name: Add the hosts file
+      shell: cat '{{ ansbile_dir }}/{{ environment_name }}.yaml' |grep instance_host|cut -d ":" -f2|tr -s " "|cut -d " " -f2|uniq >> '{{ ansbile_dir }}'/inventory.txt
+    - name: Build the hosts inventory file for apache
+      shell: echo ['{{ environment_name }}_apache'] >> '{{ ansbile_dir }}'/inventory.txt
+    - name: Add the hosts file
+      shell: cat '{{ ansbile_dir }}/{{ environment_name }}.yaml' |grep apache_host|cut -d ":" -f2|tr -s " "|cut -d " " -f2|uniq >> '{{ ansbile_dir }}'/inventory.txt

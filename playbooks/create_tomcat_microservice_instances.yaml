@@ -5,21 +5,21 @@
     - '{{ ansible_dir }}/{{ environment_name }}.yaml'
   user: ec2-user
   tasks:
-    - name: Create Tomcat Web Instances
+    - name: Create Tomcat MicroService Instances
       shell: sh /tmp/automate/scripts/create_tomcat.sh '{{ environment_name }}' '{{ base_directory }}' '{{ java_home_directory }}' '{{ tomcat_base_directory }}' '{{ item.instance_name }}' '{{ item.shutdown_port }}' '{{ item.port }}' '{{ item.redirect_port }}' '{{ item.cluster_details }}' '{{ jndi_name }}' '{{ db_host }}' '{{ db_port }}' '{{ db_service }}' '{{ db_user }}' '{{ db_password }}' '{{ db_max_active_connections }}' '{{ db_max_idle_connections }}' '{{ db_min_idle_connections }}' '{{ db_max_wait_connections }}' '{{ deploy_user }}' '{{ deploy_password }}' instance
       delegate_to: '{{ item.instance_host }}'
       become: yes
       become_user: tomcat
       loop: '{{ tomcat_microservice_instances }}'
 
-    - name: Startup Tomcat Web Instances
+    - name: Startup Tomcat MicroService Instances
       shell: 'nohup {{ tomcat_base_directory }}/scripts/{{ item.instance_name }}_control.sh start;sleep 5'
       delegate_to: '{{ item.instance_host }}'
       become: yes
       become_user: tomcat
       loop: '{{ tomcat_microservice_instances }}'
 
-    - name: Test Tomcat Web Instances
+    - name: Test Tomcat MicroService Instances
       uri:
         url: 'http://{{ item.instance_host }}:{{ item.port}}/TechRefresh'
         timeout: 3

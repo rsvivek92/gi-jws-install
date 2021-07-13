@@ -16,57 +16,57 @@ db_min_idle_connections: 5
 db_max_wait_connections: 100
 tomcat_web_instances:
   - instance_name: tomcat_web_instance1
-    instance_host: ip-192-168-4-91.us-east-2.compute.internal
-    cluster_details: ip-192-168-4-91.us-east-2.compute.internal:59175,ip-192-168-4-91.us-east-2.compute.internal:59185
+    instance_host: ip-192-168-5-119.us-east-2.compute.internal
+    cluster_details: ip-192-168-5-119.us-east-2.compute.internal:59175,ip-192-168-5-119.us-east-2.compute.internal:59185
     port: 58100
     redirect_port: 58102
     shutdown_port: 58104
   - instance_name: tomcat_web_instance2
-    instance_host: ip-192-168-4-91.us-east-2.compute.internal
-    cluster_details: ip-192-168-4-91.us-east-2.compute.internal:59175,ip-192-168-4-91.us-east-2.compute.internal:59185
+    instance_host: ip-192-168-5-119.us-east-2.compute.internal
+    cluster_details: ip-192-168-5-119.us-east-2.compute.internal:59175,ip-192-168-5-119.us-east-2.compute.internal:59185
     port: 58110
     redirect_port: 58112
     shutdown_port: 58114
     mod_cluster_details: 
 tomcat_service_instances:
   - instance_name: tomcat_service_instance1
-    instance_host: ip-192-168-4-91.us-east-2.compute.internal
-    cluster_details: ip-192-168-4-91.us-east-2.compute.internal:59175,ip-192-168-4-91.us-east-2.compute.internal:59185
+    instance_host: ip-192-168-5-119.us-east-2.compute.internal
+    cluster_details: ip-192-168-5-119.us-east-2.compute.internal:59175,ip-192-168-5-119.us-east-2.compute.internal:59185
     port: 58120
     redirect_port: 58122
     shutdown_port: 58124
   - instance_name: tomcat_service_instance2
-    instance_host: ip-192-168-4-91.us-east-2.compute.internal
-    cluster_details: ip-192-168-4-91.us-east-2.compute.internal:59175,ip-192-168-4-91.us-east-2.compute.internal:59185
+    instance_host: ip-192-168-5-119.us-east-2.compute.internal
+    cluster_details: ip-192-168-5-119.us-east-2.compute.internal:59175,ip-192-168-5-119.us-east-2.compute.internal:59185
     port: 58130
     redirect_port: 58132
     shutdown_port: 58134
 tomcat_microservice_instances:
   - instance_name: tomcat_microservice_instance1
-    instance_host: ip-192-168-4-91.us-east-2.compute.internal
-    cluster_details: ip-192-168-4-91.us-east-2.compute.internal:59175,ip-192-168-4-91.us-east-2.compute.internal:59185
+    instance_host: ip-192-168-5-119.us-east-2.compute.internal
+    cluster_details: ip-192-168-5-119.us-east-2.compute.internal:59175,ip-192-168-5-119.us-east-2.compute.internal:59185
     port: 58140
     redirect_port: 58142
     shutdown_port: 58144
   - instance_name: tomcat_microservice_instance2
-    instance_host: ip-192-168-4-91.us-east-2.compute.internal
-    cluster_details: ip-192-168-4-91.us-east-2.compute.internal:59175,ip-192-168-4-91.us-east-2.compute.internal:59185
+    instance_host: ip-192-168-5-119.us-east-2.compute.internal
+    cluster_details: ip-192-168-5-119.us-east-2.compute.internal:59175,ip-192-168-5-119.us-east-2.compute.internal:59185
     port: 58150
     redirect_port: 58152
     shutdown_port: 58154
 tomcat_batch_instances:
   - instance_name: tomcat_batch_instance1
-    instance_host: ip-192-168-4-91.us-east-2.compute.internal
-    cluster_details: ip-192-168-4-91.us-east-2.compute.internal:59175,ip-192-168-4-91.us-east-2.compute.internal:59185
+    instance_host: ip-192-168-5-119.us-east-2.compute.internal
+    cluster_details: ip-192-168-5-119.us-east-2.compute.internal:59175,ip-192-168-5-119.us-east-2.compute.internal:59185
     port: 58160
     redirect_port: 58162
     shutdown_port: 58164
 apache_instances:
   - apache_name: apache_web_instance1
-    apache_host: ip-192-168-4-91.us-east-2.compute.internal
+    apache_host: ip-192-168-5-119.us-east-2.compute.internal
     port: 59170
     cluster_listen_port: 59175
   - apache_name: apache_web_instance2
-    apache_host: ip-192-168-4-91.us-east-2.compute.internal
+    apache_host: ip-192-168-5-119.us-east-2.compute.internal
     port: 59180
     cluster_listen_port: 59185
